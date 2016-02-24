@@ -20,12 +20,17 @@ namespace keyPressAnimations
         int drawX = 100;
         int drawY = 200;
 
+        int direction = 0;
+
         //determines whether a key is being pressed or not
         Boolean leftArrowDown, downArrowDown, rightArrowDown, upArrowDown;
 
         //create graphic objects
         SolidBrush drawBrush = new SolidBrush(Color.Black);
 
+        Image[] character = {Properties.Resources.RedGuyLeft, Properties.Resources.RedGuyRight,
+            Properties.Resources.RedGuyUp, Properties.Resources.RedGuyDown};
+        
         public Form1()
         {
             InitializeComponent();
@@ -87,18 +92,22 @@ namespace keyPressAnimations
             if (leftArrowDown == true)
             {
                 drawX--;
+                direction = 0;
             }
             if (downArrowDown == true)
             {
                 drawY++;
+                direction = 3;
             }
             if (rightArrowDown == true)
             {
                 drawX++;
+                direction = 1;
             }
             if (upArrowDown == true)
             {
                 drawY--;
+                direction = 2;
             }
 
             //refresh the screen, which causes the Form1_Paint method to run
@@ -106,11 +115,9 @@ namespace keyPressAnimations
 
         }
 
-
         private void Form1_Paint(object sender, PaintEventArgs e)
         {
-            //draw rectangle to screen
-            e.Graphics.FillRectangle(drawBrush, drawX, drawY, 10, 20);
+            e.Graphics.DrawImage(character[direction], drawX, drawY);
         }
 
     }
