@@ -15,5 +15,6 @@ namespace keyPressAnimations
         {
             InitializeComponent();
         }
+        //TODO ask user to either start a new game or exit the game
     }
 }
