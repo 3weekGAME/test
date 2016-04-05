@@ -28,8 +28,8 @@ namespace keyPressAnimations
         //create graphic objects
         SolidBrush drawBrush = new SolidBrush(Color.Black);
 
-        Image[] character = {Properties.Resources.RedGuyLeft, Properties.Resources.RedGuyRight,
-            Properties.Resources.RedGuyUp, Properties.Resources.RedGuyDown};
+        //Image[] character = {Properties.Resources.left, Properties.Resources.right,
+        //    Properties.Resources.up, Properties.Resources.down};
         
         public Form1()
         {

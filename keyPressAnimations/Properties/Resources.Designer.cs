@@ -63,6 +63,16 @@ namespace keyPressAnimations.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap down {
+            get {
+                object obj = ResourceManager.GetObject("down", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap forest {
             get {
                 object obj = ResourceManager.GetObject("forest", resourceCulture);
@@ -73,9 +83,9 @@ namespace keyPressAnimations.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap pirate {
+        internal static System.Drawing.Bitmap left {
             get {
-                object obj = ResourceManager.GetObject("pirate", resourceCulture);
+                object obj = ResourceManager.GetObject("left", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -116,6 +126,66 @@ namespace keyPressAnimations.Properties {
         internal static System.Drawing.Bitmap RedGuyUp {
             get {
                 object obj = ResourceManager.GetObject("RedGuyUp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap right {
+            get {
+                object obj = ResourceManager.GetObject("right", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap up {
+            get {
+                object obj = ResourceManager.GetObject("up", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap voltorb_down {
+            get {
+                object obj = ResourceManager.GetObject("voltorb_down", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap voltorb_left {
+            get {
+                object obj = ResourceManager.GetObject("voltorb_left", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap voltorb_right {
+            get {
+                object obj = ResourceManager.GetObject("voltorb_right", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap voltorb_up {
+            get {
+                object obj = ResourceManager.GetObject("voltorb_up", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
