@@ -14,27 +14,29 @@ namespace keyPressAnimations
         */
         public int x, y, size, speed;
         Image[] bullet = new Image[4];
+        public string direction;
 
-        public Bullet(int _x, int _y, int _size, int _speed, Image[] _bullet)
+        public Bullet(int _x, int _y, int _size, int _speed, Image[] _bullet, string _direction)
         {
             x = _x;
             y = _y;
             size = _size;
             speed = _speed;
             bullet = _bullet;
+            direction = _direction;
         }
 
-        public void move(Bullet b, string direction)
+        public void move(Bullet b)
         {
-            if (direction == "left")
+            if (b.direction == "left")
             {
                 b.x -= b.speed;
             }
-            else if (direction == "right")
+            else if (b.direction == "right")
             {
                 b.x += b.speed;
             }
-            else if (direction == "up")
+            else if (b.direction == "up")
             {
                 b.y += b.speed;
             }

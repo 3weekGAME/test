@@ -16,6 +16,8 @@ namespace keyPressAnimations
 {
     public partial class Form1 : Form
     {
+        //MAINSCREEN & GAMESCREEN
+
         //initial starting points for black rectangle
         int drawX = 100;
         int drawY = 200;

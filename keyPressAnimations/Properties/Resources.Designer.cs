@@ -73,16 +73,6 @@ namespace keyPressAnimations.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap forest {
-            get {
-                object obj = ResourceManager.GetObject("forest", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap left {
             get {
                 object obj = ResourceManager.GetObject("left", resourceCulture);
@@ -93,9 +83,9 @@ namespace keyPressAnimations.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap RedGuyDown {
+        internal static System.Drawing.Bitmap palkia_down {
             get {
-                object obj = ResourceManager.GetObject("RedGuyDown", resourceCulture);
+                object obj = ResourceManager.GetObject("palkia_down", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -103,9 +93,9 @@ namespace keyPressAnimations.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap RedGuyLeft {
+        internal static System.Drawing.Bitmap palkia_left {
             get {
-                object obj = ResourceManager.GetObject("RedGuyLeft", resourceCulture);
+                object obj = ResourceManager.GetObject("palkia_left", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -113,9 +103,9 @@ namespace keyPressAnimations.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap RedGuyRight {
+        internal static System.Drawing.Bitmap palkia_right {
             get {
-                object obj = ResourceManager.GetObject("RedGuyRight", resourceCulture);
+                object obj = ResourceManager.GetObject("palkia_right", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -123,9 +113,9 @@ namespace keyPressAnimations.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap RedGuyUp {
+        internal static System.Drawing.Bitmap palkia_up {
             get {
-                object obj = ResourceManager.GetObject("RedGuyUp", resourceCulture);
+                object obj = ResourceManager.GetObject("palkia_up", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

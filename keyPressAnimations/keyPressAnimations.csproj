@@ -53,6 +53,18 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="GameScreen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GameScreen.Designer.cs">
+      <DependentUpon>GameScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainScreen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MainScreen.Designer.cs">
+      <DependentUpon>MainScreen.cs</DependentUpon>
+    </Compile>
     <Compile Include="Monster.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />
@@ -157,6 +169,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\voltorb_up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\palkia_down.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\palkia_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\palkia_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\palkia_up.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
