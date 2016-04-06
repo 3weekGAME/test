@@ -15,6 +15,20 @@ namespace keyPressAnimations
         {
             InitializeComponent();
         }
-        //TODO ask user to either start a new game or exit the game
+
+        private void startButton_Click(object sender, EventArgs e)
+        {
+            //TODO Start GameScreen
+            Form f = this.FindForm();
+            f.Controls.Remove(this);
+            GameScreen gs = new GameScreen();
+            f.Controls.Add(gs);
+        }
+
+        private void exitButton_Click(object sender, EventArgs e)
+        {
+            //TODO close application
+            Application.Exit();
+        }
     }
 }

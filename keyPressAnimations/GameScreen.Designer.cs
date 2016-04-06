@@ -41,9 +41,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.InactiveCaptionText;
             this.Name = "GameScreen";
             this.Size = new System.Drawing.Size(800, 500);
             this.Load += new System.EventHandler(this.GameScreen_Load);
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.GameScreen_Paint);
             this.ResumeLayout(false);
 
         }
