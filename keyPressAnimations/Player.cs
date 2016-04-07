@@ -15,6 +15,7 @@ namespace keyPressAnimations
          Create a collision method that will check for collision between Player and Monster
         */
         public int x, y, size, speed;
+        public string direction;
         Image[] player = new Image[4];
 
         public Player(int _x, int _y, int _size, int _speed, Image[] _player)
@@ -26,8 +27,10 @@ namespace keyPressAnimations
             player = _player;
         }
 
-        public void move(Player p, string direction)
+        public void move(Player p, string _direction)
         {
+            direction = _direction;
+
             if (direction == "left")
             {
                 p.x -= p.speed;
@@ -38,11 +41,11 @@ namespace keyPressAnimations
             }
             else if (direction == "up")
             {
-                p.y += p.speed;
+                p.y -= p.speed;
             }
             else
             {
-                p.y -= p.speed;
+                p.y += p.speed;
             }
 
         }
