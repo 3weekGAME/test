@@ -40,7 +40,7 @@ namespace keyPressAnimations
 
             //TODO Create a monster object and add it to the monsters List.
             Random rand = new Random();
-            Monster m = new Monster(rand.Next(0,800), rand.Next(0, 500), 10, 6, palkia);
+            Monster m = new Monster(rand.Next(0,770), rand.Next(0, 470), 30, 6, palkia);
             monsters.Add(m);
 
             this.Focus();

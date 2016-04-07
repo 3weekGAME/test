@@ -150,12 +150,6 @@
     <None Include="Resources\down_right.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\left.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\right.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\up.png" />
   </ItemGroup>
   <ItemGroup>
@@ -183,10 +177,16 @@
     <None Include="Resources\palkia_left.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\palkia_up.png" />
+  </ItemGroup>
+  <ItemGroup>
     <None Include="Resources\palkia_right.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\palkia_up.png" />
+    <None Include="Resources\left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\right.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
