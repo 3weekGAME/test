@@ -29,16 +29,16 @@ namespace keyPressAnimations
         List<Monster> monsters = new List<Monster>();
         List<Bullet> bullets = new List<Bullet>();
 
+        #region Image arrays
         Image[] character = {Properties.Resources.left, Properties.Resources.right,
             Properties.Resources.up, Properties.Resources.down};
         Image[] palkia = {Properties.Resources.palkia_left, Properties.Resources.palkia_right,
             Properties.Resources.palkia_up, Properties.Resources.palkia_down};
         Image[] voltorb = {Properties.Resources.voltorb_left, Properties.Resources.voltorb_right,
             Properties.Resources.voltorb_up, Properties.Resources.voltorb_down};
-
-        //TODO add icon
-        //TODO show score on screen
-        public int score = 0;
+        #endregion
+        
+        public static int score = 0;
 
         private void GameScreen_Load(object sender, EventArgs e)
         {
@@ -129,6 +129,7 @@ namespace keyPressAnimations
             Refresh();
             #endregion
 
+            #region create bullets
             //Check button press(s) for bullet fire. If the user selects to fire a bullet create a new
             //bullet object and place it in the bullet List.Remember the direction variable indicates
             //which direction the bullet will constantly move in.
@@ -137,7 +138,9 @@ namespace keyPressAnimations
                 Bullet b = new Bullet(P.x, P.y, 15, 13, voltorb, P.direction);
                 bullets.Add(b);
             }
+            #endregion
 
+            #region create more monsters
             //Check to see if it is time to generate a new monster.This can be done on a regular
             //interval or upon some other event.
             Random rand = new Random();
@@ -146,7 +149,9 @@ namespace keyPressAnimations
                 Monster m = new Monster(770, rand.Next(0, 470), 29, 2, palkia);
                 monsters.Add(m);
             }
+            #endregion
 
+            #region Monster & Player collision
             //Check collision between all monsters and the player character. If a monster touches
             //the player display a game over screen.
             foreach (Monster m in monsters)
@@ -163,8 +168,9 @@ namespace keyPressAnimations
 
                 }
             }
+            #endregion
 
-
+            #region Bullet & Monster collision
             //Check collision between bullets and monsters. If a bullet hits a monster the bullet
             //and the monster are removed from their respective lists.
             foreach (Monster m in monsters)
@@ -180,7 +186,9 @@ namespace keyPressAnimations
                     }
                 }
             }
+            #endregion
 
+            #region move monsters and bullets 
             foreach (Bullet b in bullets)
             {
                 if (b.x < 0 || b.x > 500 || b.y < 0 || b.y > 800)
@@ -203,17 +211,20 @@ namespace keyPressAnimations
                     m.move(m, "left");
                 }
             }
+#endregion
 
         }
 
         private void GameScreen_Paint(object sender, PaintEventArgs e)
         {
-            //draw everything on the screen
+            #region draw dialga
             if (P.direction == "up") {  e.Graphics.DrawImage(character[2], P.x, P.y); }
             else if (P.direction == "down") { e.Graphics.DrawImage(character[3], P.x, P.y); }
             else if (P.direction == "left") { e.Graphics.DrawImage(character[0], P.x, P.y); }
             else { e.Graphics.DrawImage(character[1], P.x, P.y); }
+            #endregion
 
+            #region draw palkias
             foreach (Monster m in monsters)
             {
                 if (m.direction == "up") { e.Graphics.DrawImage(palkia[2], m.x, m.y); }
@@ -221,7 +232,9 @@ namespace keyPressAnimations
                 else if (m.direction == "left") { e.Graphics.DrawImage(palkia[0], m.x, m.y); }
                 else { e.Graphics.DrawImage(palkia[1], m.x, m.y); }
             }
+            #endregion
 
+            #region draw voltorbs
             foreach (Bullet b in bullets)
             {
                 if (b.direction == "up") { e.Graphics.DrawImage(voltorb[2], b.x, b.y); }
@@ -229,6 +242,8 @@ namespace keyPressAnimations
                 else if (b.direction == "left") { e.Graphics.DrawImage(voltorb[0], b.x, b.y); }
                 else { e.Graphics.DrawImage(voltorb[1], b.x, b.y); }
             }
+            #endregion
+
         }
 
     }

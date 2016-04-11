@@ -154,4 +154,7 @@
   <data name="palkia_right" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\palkia_right.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="down_right" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\down_right.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

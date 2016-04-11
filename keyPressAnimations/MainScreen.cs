@@ -18,7 +18,7 @@ namespace keyPressAnimations
 
         private void startButton_Click(object sender, EventArgs e)
         {
-            //TODO Start GameScreen
+            //Start GameScreen
             Form f = this.FindForm();
             f.Controls.Remove(this);
             GameScreen gs = new GameScreen();
@@ -27,8 +27,14 @@ namespace keyPressAnimations
 
         private void exitButton_Click(object sender, EventArgs e)
         {
-            //TODO close application
+            //close application
             Application.Exit();
+        }
+
+        private void MainScreen_Load(object sender, EventArgs e)
+        {
+            //show score from previous play 
+            scoreLabel.Text = "Your score was " + Convert.ToString(GameScreen.score);
         }
     }
 }
