@@ -43,11 +43,11 @@ namespace keyPressAnimations
         private void GameScreen_Load(object sender, EventArgs e)
         {
             // set the hero object with the initial start values that you want.
-            P = new Player(100, 200, 40, 10, character);
+            P = new Player(100, 200, 39, 10, character);
 
             //Create a monster object and add it to the monsters List.
             Random rand = new Random();
-            Monster m = new Monster(rand.Next(0,770), rand.Next(0, 470), 29, 5, palkia);
+            Monster m = new Monster(790, rand.Next(0, 470), 26, 2, palkia);
             monsters.Add(m);
 
             this.Focus();
@@ -146,7 +146,7 @@ namespace keyPressAnimations
             Random rand = new Random();
             if (rand.Next(0, 101) < 5)
             {
-                Monster m = new Monster(770, rand.Next(0, 470), 29, 2, palkia);
+                Monster m = new Monster(770, rand.Next(0, 470), 27, 2, palkia);
                 monsters.Add(m);
             }
             #endregion
@@ -182,16 +182,19 @@ namespace keyPressAnimations
                         bullets.Remove(b);
                         monsters.Remove(m);
                         score++;
+                        Refresh();
                         break;
                     }
                 }
+
+                Refresh();
             }
             #endregion
 
             #region move monsters and bullets 
             foreach (Bullet b in bullets)
             {
-                if (b.x < 0 || b.x > 500 || b.y < 0 || b.y > 800)
+                if (b.x < 0 || b.x > 800 || b.y < 0 || b.y > 500)
                 {
                     bullets.Remove(b);
                     break;
