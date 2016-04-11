@@ -28,12 +28,17 @@ namespace keyPressAnimations
         Player P;
         List<Monster> monsters = new List<Monster>();
         List<Bullet> bullets = new List<Bullet>();
+
         Image[] character = {Properties.Resources.left, Properties.Resources.right,
             Properties.Resources.up, Properties.Resources.down};
         Image[] palkia = {Properties.Resources.palkia_left, Properties.Resources.palkia_right,
             Properties.Resources.palkia_up, Properties.Resources.palkia_down};
         Image[] voltorb = {Properties.Resources.voltorb_left, Properties.Resources.voltorb_right,
             Properties.Resources.voltorb_up, Properties.Resources.voltorb_down};
+
+        //TODO add icon
+        //TODO show score on screen
+        public int score = 0;
 
         private void GameScreen_Load(object sender, EventArgs e)
         {
@@ -138,7 +143,7 @@ namespace keyPressAnimations
             Random rand = new Random();
             if (rand.Next(0, 101) < 5)
             {
-                Monster m = new Monster(rand.Next(0, 770), rand.Next(0, 470), 29, 5, palkia);
+                Monster m = new Monster(770, rand.Next(0, 470), 29, 2, palkia);
                 monsters.Add(m);
             }
 
@@ -170,6 +175,7 @@ namespace keyPressAnimations
                     {
                         bullets.Remove(b);
                         monsters.Remove(m);
+                        score++;
                         break;
                     }
                 }
@@ -177,12 +183,27 @@ namespace keyPressAnimations
 
             foreach (Bullet b in bullets)
             {
-                b.move(b);
+                if (b.x < 0 || b.x > 500 || b.y < 0 || b.y > 800)
+                {
+                    bullets.Remove(b);
+                    break;
+                }
+                else { b.move(b); }
             }
+
             foreach (Monster m in monsters)
             {
-                m.move(m, "left");
+                if (m.x < 0)
+                {
+                    monsters.Remove(m);
+                    break;
+                }
+                else
+                {
+                    m.move(m, "left");
+                }
             }
+
         }
 
         private void GameScreen_Paint(object sender, PaintEventArgs e)
