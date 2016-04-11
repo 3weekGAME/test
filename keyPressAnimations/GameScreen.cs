@@ -22,9 +22,9 @@ namespace keyPressAnimations
 
         
         //determines whether a key is being pressed or not
-        Boolean leftArrowDown, downArrowDown, rightArrowDown, upArrowDown;
+        Boolean leftArrowDown, downArrowDown, rightArrowDown, upArrowDown, fire;
 
-        //TODO Create global player object, monsters List, and bulletsList
+        //Create global player object, monsters List, and bulletsList
         Player P;
         List<Monster> monsters = new List<Monster>();
         List<Bullet> bullets = new List<Bullet>();
@@ -32,15 +32,17 @@ namespace keyPressAnimations
             Properties.Resources.up, Properties.Resources.down};
         Image[] palkia = {Properties.Resources.palkia_left, Properties.Resources.palkia_right,
             Properties.Resources.palkia_up, Properties.Resources.palkia_down};
+        Image[] voltorb = {Properties.Resources.voltorb_left, Properties.Resources.voltorb_right,
+            Properties.Resources.voltorb_up, Properties.Resources.voltorb_down};
 
         private void GameScreen_Load(object sender, EventArgs e)
         {
             // set the hero object with the initial start values that you want.
             P = new Player(100, 200, 40, 10, character);
 
-            //TODO Create a monster object and add it to the monsters List.
+            //Create a monster object and add it to the monsters List.
             Random rand = new Random();
-            Monster m = new Monster(rand.Next(0,770), rand.Next(0, 470), 30, 6, palkia);
+            Monster m = new Monster(rand.Next(0,770), rand.Next(0, 470), 29, 5, palkia);
             monsters.Add(m);
 
             this.Focus();
@@ -63,6 +65,9 @@ namespace keyPressAnimations
                 case Keys.Up:
                     upArrowDown = true;
                     break;
+                case Keys.Space:
+                    fire = true;
+                    break;
                 default:
                     break;
             }
@@ -84,6 +89,9 @@ namespace keyPressAnimations
                     break;
                 case Keys.Up:
                     upArrowDown = false;
+                    break;
+                case Keys.Space:
+                    fire = false;
                     break;
                 default:
                     break;
@@ -116,16 +124,27 @@ namespace keyPressAnimations
             Refresh();
             #endregion
 
-            //TODO Check button press(s) for bullet fire. If the user selects to fire a bullet create a new
+            //Check button press(s) for bullet fire. If the user selects to fire a bullet create a new
             //bullet object and place it in the bullet List.Remember the direction variable indicates
             //which direction the bullet will constantly move in.
+            if (fire == true)
+            {
+                Bullet b = new Bullet(P.x, P.y, 15, 13, voltorb, P.direction);
+                bullets.Add(b);
+            }
 
-            //TODO Check to see if it is time to generate a new monster.This can be done on a regular
+            //Check to see if it is time to generate a new monster.This can be done on a regular
             //interval or upon some other event.
+            Random rand = new Random();
+            if (rand.Next(0, 101) < 5)
+            {
+                Monster m = new Monster(rand.Next(0, 770), rand.Next(0, 470), 29, 5, palkia);
+                monsters.Add(m);
+            }
 
-            //TODO Check collision between all monsters and the player character. If a monster touches
+            //Check collision between all monsters and the player character. If a monster touches
             //the player display a game over screen.
-            foreach(Monster m in monsters)
+            foreach (Monster m in monsters)
             {
                 if (P.collision(P, m) == true)
                 {
@@ -141,13 +160,34 @@ namespace keyPressAnimations
             }
 
 
-            //TODO Check collision between bullets and monsters. If a bullet hits a monster the bullet
+            //Check collision between bullets and monsters. If a bullet hits a monster the bullet
             //and the monster are removed from their respective lists.
+            foreach (Monster m in monsters)
+            {
+                foreach (Bullet b in bullets)
+                {
+                    if (m.collision(m, b) == true)
+                    {
+                        bullets.Remove(b);
+                        monsters.Remove(m);
+                        break;
+                    }
+                }
+            }
+
+            foreach (Bullet b in bullets)
+            {
+                b.move(b);
+            }
+            foreach (Monster m in monsters)
+            {
+                m.move(m, "left");
+            }
         }
 
         private void GameScreen_Paint(object sender, PaintEventArgs e)
         {
-            //TODO draw everything on the screen
+            //draw everything on the screen
             if (P.direction == "up") {  e.Graphics.DrawImage(character[2], P.x, P.y); }
             else if (P.direction == "down") { e.Graphics.DrawImage(character[3], P.x, P.y); }
             else if (P.direction == "left") { e.Graphics.DrawImage(character[0], P.x, P.y); }
@@ -159,6 +199,14 @@ namespace keyPressAnimations
                 else if (m.direction == "down") { e.Graphics.DrawImage(palkia[3], m.x, m.y); }
                 else if (m.direction == "left") { e.Graphics.DrawImage(palkia[0], m.x, m.y); }
                 else { e.Graphics.DrawImage(palkia[1], m.x, m.y); }
+            }
+
+            foreach (Bullet b in bullets)
+            {
+                if (b.direction == "up") { e.Graphics.DrawImage(voltorb[2], b.x, b.y); }
+                else if (b.direction == "down") { e.Graphics.DrawImage(voltorb[3], b.x, b.y); }
+                else if (b.direction == "left") { e.Graphics.DrawImage(voltorb[0], b.x, b.y); }
+                else { e.Graphics.DrawImage(voltorb[1], b.x, b.y); }
             }
         }
 
