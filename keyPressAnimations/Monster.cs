@@ -15,7 +15,7 @@ namespace keyPressAnimations
         Create a collision method that will check for collision between Monster and Bullets
         */
         public int x, y, size, speed;
-        public string direction;
+        public int direction;
         Image[] monster = new Image[4];
 
         public Monster(int _x, int _y, int _size, int _speed, Image[] _monster)
@@ -27,19 +27,19 @@ namespace keyPressAnimations
             monster = _monster;
         }
 
-        public void move(Monster m, string _direction)
+        public void move(Monster m, int _direction)
         {
             direction = _direction;
 
-            if (direction == "left")
+            if (direction == 0)
             {
                 m.x -= m.speed;
             }
-            else if (direction == "right")
+            else if (direction == 1)
             {
                 m.x += m.speed;
             }
-            else if (direction == "up")
+            else if (direction == 2)
             {
                 m.y += m.speed;
             }

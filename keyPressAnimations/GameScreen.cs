@@ -110,19 +110,19 @@ namespace keyPressAnimations
             //checks to see if any keys have been pressed and adjusts the X or Y value appropriately
             if (leftArrowDown == true)
             {
-                P.move(P, "left");
+                P.move(P, 0);
             }
             else if (downArrowDown == true)
             {
-                P.move(P, "down");
+                P.move(P, 3);
             }
             else if (rightArrowDown == true)
             {
-                P.move(P, "right");
+                P.move(P, 1);
             }
             else if (upArrowDown == true)
             {
-                P.move(P, "up");
+                P.move(P, 2);
             }
 
             //refresh the screen, which causes the Form1_Paint method to run
@@ -185,6 +185,7 @@ namespace keyPressAnimations
                         Refresh();
                         break;
                     }
+
                 }
 
                 Refresh();
@@ -211,7 +212,7 @@ namespace keyPressAnimations
                 }
                 else
                 {
-                    m.move(m, "left");
+                    m.move(m, 0);
                 }
             }
 #endregion
@@ -221,29 +222,20 @@ namespace keyPressAnimations
         private void GameScreen_Paint(object sender, PaintEventArgs e)
         {
             #region draw dialga
-            if (P.direction == "up") {  e.Graphics.DrawImage(character[2], P.x, P.y); }
-            else if (P.direction == "down") { e.Graphics.DrawImage(character[3], P.x, P.y); }
-            else if (P.direction == "left") { e.Graphics.DrawImage(character[0], P.x, P.y); }
-            else { e.Graphics.DrawImage(character[1], P.x, P.y); }
+            e.Graphics.DrawImage(character[P.direction], P.x, P.y);
             #endregion
 
             #region draw palkias
             foreach (Monster m in monsters)
             {
-                if (m.direction == "up") { e.Graphics.DrawImage(palkia[2], m.x, m.y); }
-                else if (m.direction == "down") { e.Graphics.DrawImage(palkia[3], m.x, m.y); }
-                else if (m.direction == "left") { e.Graphics.DrawImage(palkia[0], m.x, m.y); }
-                else { e.Graphics.DrawImage(palkia[1], m.x, m.y); }
+                e.Graphics.DrawImage(palkia[m.direction], m.x, m.y);
             }
             #endregion
 
             #region draw voltorbs
             foreach (Bullet b in bullets)
             {
-                if (b.direction == "up") { e.Graphics.DrawImage(voltorb[2], b.x, b.y); }
-                else if (b.direction == "down") { e.Graphics.DrawImage(voltorb[3], b.x, b.y); }
-                else if (b.direction == "left") { e.Graphics.DrawImage(voltorb[0], b.x, b.y); }
-                else { e.Graphics.DrawImage(voltorb[1], b.x, b.y); }
+            e.Graphics.DrawImage(voltorb[b.direction], b.x, b.y); 
             }
             #endregion
 
