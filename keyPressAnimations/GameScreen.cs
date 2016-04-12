@@ -19,7 +19,6 @@ namespace keyPressAnimations
             gameTimer.Enabled = true;
             gameTimer.Start();
         }
-
         
         //determines whether a key is being pressed or not
         Boolean leftArrowDown, downArrowDown, rightArrowDown, upArrowDown, fire;
@@ -108,19 +107,19 @@ namespace keyPressAnimations
 
             #region Check button presses for player movement.
             //checks to see if any keys have been pressed and adjusts the X or Y value appropriately
-            if (leftArrowDown == true)
+            if (leftArrowDown == true && P.x > 0)
             {
                 P.move(P, 0);
             }
-            else if (downArrowDown == true)
+            else if (downArrowDown == true && P.y < 440)
             {
                 P.move(P, 3);
             }
-            else if (rightArrowDown == true)
+            else if (rightArrowDown == true && P.x < 750)
             {
                 P.move(P, 1);
             }
-            else if (upArrowDown == true)
+            else if (upArrowDown == true && P.y > 0)
             {
                 P.move(P, 2);
             }
@@ -193,14 +192,19 @@ namespace keyPressAnimations
             #endregion
 
             #region move monsters and bullets 
+
+            if (bullets.Count > 0)
+            {
+                if (bullets[0].x < 0 || bullets[0].x > 800 || bullets[0].y < 0 || bullets[0].y > 500)
+                {
+                    bullets.RemoveAt(0);
+                }
+            }
+
+
             foreach (Bullet b in bullets)
             {
-                if (b.x < 0 || b.x > 800 || b.y < 0 || b.y > 500)
-                {
-                    bullets.Remove(b);
-                    break;
-                }
-                else { b.move(b); }
+                b.move(b);
             }
 
             foreach (Monster m in monsters)
