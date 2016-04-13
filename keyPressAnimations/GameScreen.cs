@@ -23,6 +23,8 @@ namespace keyPressAnimations
         //determines whether a key is being pressed or not
         Boolean leftArrowDown, downArrowDown, rightArrowDown, upArrowDown, fire;
 
+        int monsterSpeed = 2;
+
         //Create global player object, monsters List, and bulletsList
         Player P;
         List<Monster> monsters = new List<Monster>();
@@ -43,6 +45,9 @@ namespace keyPressAnimations
         {
             // set the hero object with the initial start values that you want.
             P = new Player(100, 200, 39, 10, character);
+
+            score = 0;
+            monsterSpeed = 2;
 
             //Create a monster object and add it to the monsters List.
             Random rand = new Random();
@@ -145,7 +150,7 @@ namespace keyPressAnimations
             Random rand = new Random();
             if (rand.Next(0, 101) < 5)
             {
-                Monster m = new Monster(770, rand.Next(0, 470), 27, 2, palkia);
+                Monster m = new Monster(770, rand.Next(0, 470), 27, monsterSpeed, palkia);
                 monsters.Add(m);
             }
             #endregion
@@ -172,19 +177,21 @@ namespace keyPressAnimations
             #region Bullet & Monster collision
             //Check collision between bullets and monsters. If a bullet hits a monster the bullet
             //and the monster are removed from their respective lists.
-            foreach (Monster m in monsters)
+            for (int i = 0; i < monsters.Count(); i++)
             {
-                foreach (Bullet b in bullets)
+                Monster m = monsters[i];
+
+                for (int h = 0; h < bullets.Count(); h++)
                 {
+                    Bullet b = bullets[h];
+
                     if (m.collision(m, b) == true)
                     {
                         bullets.Remove(b);
                         monsters.Remove(m);
                         score++;
                         Refresh();
-                        break;
                     }
-
                 }
 
                 Refresh();
@@ -219,7 +226,15 @@ namespace keyPressAnimations
                     m.move(m, 0);
                 }
             }
-#endregion
+            #endregion
+
+            #region adjust speed
+            if (score > 10)
+            {
+                double d = (score / 8);
+                monsterSpeed = Convert.ToInt16(Math.Round(d));
+            }
+            #endregion
 
         }
 
