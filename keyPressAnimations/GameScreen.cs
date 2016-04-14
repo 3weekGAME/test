@@ -118,11 +118,11 @@ namespace keyPressAnimations
             {
                 P.move(P, 0);
             }
-            else if (downArrowDown == true && P.y < 440)
+            else if (downArrowDown == true && P.y < 420)
             {
                 P.move(P, 3);
             }
-            else if (rightArrowDown == true && P.x < 750)
+            else if (rightArrowDown == true && P.x < 720)
             {
                 P.move(P, 1);
             }
