@@ -23,6 +23,7 @@ namespace keyPressAnimations
         //determines whether a key is being pressed or not
         Boolean leftArrowDown, downArrowDown, rightArrowDown, upArrowDown, fire;
 
+        Boolean fireOk = true;
         int monsterSpeed = 2;
 
         //Create global player object, monsters List, and bulletsList
@@ -101,6 +102,7 @@ namespace keyPressAnimations
                     break;
                 case Keys.Space:
                     fire = false;
+                    fireOk = true;
                     break;
                 default:
                     break;
@@ -137,10 +139,11 @@ namespace keyPressAnimations
             //Check button press(s) for bullet fire. If the user selects to fire a bullet create a new
             //bullet object and place it in the bullet List.Remember the direction variable indicates
             //which direction the bullet will constantly move in.
-            if (fire == true)
+            if (fire == true && fireOk == true)
             {
                 Bullet b = new Bullet(P.x, P.y, 15, 13, voltorb, P.direction);
                 bullets.Add(b);
+                fireOk = false;
             }
             #endregion
 
